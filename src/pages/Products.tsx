@@ -36,12 +36,12 @@ const Products = () => {
       link: '/products/lab-chemicals'
     },
     {
-      title: 'Catalyst',
-      description: 'Phase transfer catalysts including quaternary ammonium compounds for enhanced chemical reactions.',
+      title: 'Phase Transfer Catalysts',
+      description: 'High-quality quaternary ammonium compounds and phosphonium salts for enhanced chemical reactions.',
       features: ['Phase transfer catalysts', 'Quaternary ammonium compounds', 'Enhanced reactions', 'Export quality'],
       icon: Zap,
       color: 'orange',
-      link: '/products/catalyst'
+      link: '/products/phase-transfer-catalysts'
     },
     {
       title: 'Mercury Salts',

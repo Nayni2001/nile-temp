@@ -13,6 +13,8 @@ import SolventDyes from './pages/products/solvent-dyes/SolventDyes';
 import SolventDyeDetail from './pages/products/solvent-dyes/SolventDyeDetail';
 import RareEarths from './pages/products/rare-earths/RareEarths';
 import RareEarthDetail from './pages/products/rare-earths/RareEarthDetail';
+import PhaseTransferCatalysts from './pages/products/phase-transfer-catalysts/PhaseTransferCatalysts';
+import PhaseTransferCatalystDetail from './pages/products/phase-transfer-catalysts/PhaseTransferCatalystDetail';
 
 function App() { 
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path="/products/solvent-dyes/:productId" element={<SolventDyeDetail />} />
           <Route path="/products/rare-earths" element={<RareEarths />} />
           <Route path="/products/rare-earths/:productId" element={<RareEarthDetail />} />
+          <Route path="/products/phase-transfer-catalysts" element={<PhaseTransferCatalysts />} />
+          <Route path="/products/phase-transfer-catalysts/:productId" element={<PhaseTransferCatalystDetail />} />
         </Routes>
       </div>
     </Router>
