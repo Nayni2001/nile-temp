@@ -23,7 +23,7 @@ const Home = () => {
       description: 'Phase transfer catalysts including quaternary ammonium compounds for enhanced reactions.',
       icon: Zap,
       color: 'orange',
-      link: '/products/catalyst'
+      link: '/products/phase-transfer-catalysts'
     }
   ];
 
