@@ -15,6 +15,8 @@ import RareEarths from './pages/products/rare-earths/RareEarths';
 import RareEarthDetail from './pages/products/rare-earths/RareEarthDetail';
 import PhaseTransferCatalysts from './pages/products/phase-transfer-catalysts/PhaseTransferCatalysts';
 import PhaseTransferCatalystDetail from './pages/products/phase-transfer-catalysts/PhaseTransferCatalystDetail';
+import IodineDerivatives from './pages/products/iodine-derivatives/IodineDerivatives';
+import IodineDerivativeDetail from './pages/products/iodine-derivatives/IodineDerivativeDetail';
 
 function App() { 
   return (
@@ -36,6 +38,8 @@ function App() {
           <Route path="/products/rare-earths/:productId" element={<RareEarthDetail />} />
           <Route path="/products/phase-transfer-catalysts" element={<PhaseTransferCatalysts />} />
           <Route path="/products/phase-transfer-catalysts/:productId" element={<PhaseTransferCatalystDetail />} />
+          <Route path="/products/iodine-derivatives" element={<IodineDerivatives />} />
+          <Route path="/products/iodine-derivatives/:productId" element={<IodineDerivativeDetail />} />
         </Routes>
       </div>
     </Router>
