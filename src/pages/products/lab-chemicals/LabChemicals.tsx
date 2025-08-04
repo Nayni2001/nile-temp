@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, TestTube, Shield, Award, CheckCircle, ArrowRight, Beaker, Globe, Search, X, Flask, Zap, FileText } from 'lucide-react';
+import { ArrowLeft, TestTube, Shield, Award, CheckCircle, ArrowRight, Beaker, Globe, Search, X, FlaskRound as Flask, Zap, FileText } from 'lucide-react';
 import { labChemicalsData, getProductColor, getAllProducts } from '../../../data/labChemicalsData';
 import { toTitleCase } from '../../../utils/stringUtils';
 
