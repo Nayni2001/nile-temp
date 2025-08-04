@@ -1,20 +1,21 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Globe, Shield, Award, CheckCircle, ArrowRight, Beaker, Atom, Search, X, Sparkles, Zap, TestTube } from 'lucide-react';
-import { rareEarthData, getProductColor, getAllProducts } from '../../../data/rareEarthData';
+import { ArrowLeft, Palette, Shield, Award, CheckCircle, ArrowRight, Beaker, Globe, Search, X, TestTube, Zap, FlaskRound as Flask } from 'lucide-react';
+import { phIndicatorsData, getProductColor, getAllProducts } from '../../../data/phIndicatorsData';
+import { toTitleCase } from '../../../utils/stringUtils';
 
-const RareEarths = () => {
+const PhIndicators = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedSubgroup, setSelectedSubgroup] = useState('All');
   const allProducts = getAllProducts();
 
-  // Filter products based on search term and category
+  // Filter products based on search term and subgroup
   const filteredProducts = useMemo(() => {
     let filtered = allProducts;
 
-    // Filter by category
-    if (selectedCategory !== 'All') {
-      filtered = filtered.filter(product => product.category === selectedCategory);
+    // Filter by subgroup
+    if (selectedSubgroup !== 'All') {
+      filtered = filtered.filter(product => product.subgroup === selectedSubgroup);
     }
 
     // Filter by search term
@@ -27,23 +28,18 @@ const RareEarths = () => {
             return true;
           }
           
-          // Search in full name
-          if (product.fullName && product.fullName.toLowerCase().includes(searchLower)) {
-            return true;
-          }
-          
-          // Search in formula
-          if (product.formula && product.formula.toLowerCase().includes(searchLower)) {
-            return true;
-          }
-          
           // Search in CAS number
-          if (product.casNo && product.casNo.toLowerCase().includes(searchLower)) {
+          if (product.CASNo && product.CASNo.toLowerCase().includes(searchLower)) {
             return true;
           }
           
-          // Search in category
-          if (product.category && product.category.toLowerCase().includes(searchLower)) {
+          // Search in CI number
+          if (product.CINo && product.CINo.toLowerCase().includes(searchLower)) {
+            return true;
+          }
+          
+          // Search in code
+          if (product.code && product.code.toLowerCase().includes(searchLower)) {
             return true;
           }
           
@@ -56,19 +52,19 @@ const RareEarths = () => {
     }
 
     return filtered;
-  }, [allProducts, searchTerm, selectedCategory]);
+  }, [allProducts, searchTerm, selectedSubgroup]);
 
   const clearSearch = () => {
     setSearchTerm('');
   };
 
-  const categories = ['All', 'Cerium Compounds', 'Lanthanum Compounds', 'Zirconium Products', 'Didymium Compounds'];
+  const subgroups = ['All', 'Indicators', 'New Indicators'];
 
   const features = [
     {
-      icon: Atom,
-      title: 'High Purity',
-      description: 'Ultra-pure rare earth elements for advanced applications'
+      icon: Palette,
+      title: 'Certified Grade',
+      description: 'All indicators meet international standards'
     },
     {
       icon: Shield,
@@ -77,25 +73,25 @@ const RareEarths = () => {
     },
     {
       icon: Globe,
-      title: 'Research Grade',
-      description: 'Suitable for cutting-edge research and technology'
+      title: 'International Standards',
+      description: 'Compliant with global analytical requirements'
     },
     {
       icon: Beaker,
       title: 'Technical Support',
-      description: 'Expert guidance for specialized applications'
+      description: 'Expert guidance for analytical applications'
     }
   ];
 
   const applications = [
-    'Advanced Electronics',
-    'Catalysis Research',
-    'Optical Materials',
-    'Magnetic Applications',
-    'Ceramic Manufacturing',
-    'Glass Industry',
+    'pH Measurement',
     'Analytical Chemistry',
-    'Nuclear Technology'
+    'Quality Control',
+    'Research & Development',
+    'Educational Laboratories',
+    'Industrial Testing',
+    'Environmental Analysis',
+    'Pharmaceutical Testing'
   ];
 
   return (
@@ -112,18 +108,18 @@ const RareEarths = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium mb-6">
-            <Globe className="w-4 h-4 mr-2" />
-            Rare Earth Elements
+          <div className="inline-flex items-center px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6">
+            <Palette className="w-4 h-4 mr-2" />
+            pH Indicators
           </div>
           <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Rare Earth <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600">Elements</span>
+            pH <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600">Indicators</span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            {rareEarthData.details.description}
+            {phIndicatorsData.details.description}
           </p>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Our comprehensive portfolio includes cerium, lanthanum, zirconium, and didymium compounds with exceptional purity levels for advanced technology and research applications.
+            Our comprehensive range includes traditional indicators and new formulations, providing accurate pH measurements for analytical, research, and industrial applications.
           </p>
         </div>
 
@@ -139,8 +135,8 @@ const RareEarths = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search by product name, formula, CAS number, or category..."
-                className="w-full pl-12 pr-12 py-4 bg-white border border-gray-300 rounded-2xl shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-gray-900 placeholder-gray-500 text-lg"
+                placeholder="Search by product name, CAS number, CI number, or code..."
+                className="w-full pl-12 pr-12 py-4 bg-white border border-gray-300 rounded-2xl shadow-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 placeholder-gray-500 text-lg"
               />
               {searchTerm && (
                 <button
@@ -152,34 +148,34 @@ const RareEarths = () => {
               )}
             </div>
 
-            {/* Category Filter */}
+            {/* Subgroup Filter */}
             <div className="flex flex-wrap gap-2 justify-center">
-              {categories.map((category) => (
+              {subgroups.map((subgroup) => (
                 <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
+                  key={subgroup}
+                  onClick={() => setSelectedSubgroup(subgroup)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                    selectedCategory === category
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-emerald-100 hover:text-emerald-700'
+                    selectedSubgroup === subgroup
+                      ? 'bg-purple-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-purple-100 hover:text-purple-700'
                   }`}
                 >
-                  {category}
+                  {subgroup}
                 </button>
               ))}
             </div>
             
             {/* Search Results Counter */}
-            {(searchTerm || selectedCategory !== 'All') && (
+            {(searchTerm || selectedSubgroup !== 'All') && (
               <div className="mt-4 text-center">
                 <p className="text-gray-600">
                   {filteredProducts.length === 0 ? (
                     <span className="text-red-600">No products found</span>
                   ) : (
                     <>
-                      Found <span className="font-semibold text-emerald-600">{filteredProducts.length}</span> 
+                      Found <span className="font-semibold text-purple-600">{filteredProducts.length}</span> 
                       {filteredProducts.length === 1 ? ' product' : ' products'}
-                      {selectedCategory !== 'All' && ` in ${selectedCategory}`}
+                      {selectedSubgroup !== 'All' && ` in ${selectedSubgroup}`}
                       {searchTerm && ` matching "${searchTerm}"`}
                     </>
                   )}
@@ -193,8 +189,8 @@ const RareEarths = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <feature.icon className="w-8 h-8 text-emerald-600" />
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <feature.icon className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">{feature.title}</h3>
               <p className="text-gray-600 text-sm">{feature.description}</p>
@@ -205,7 +201,7 @@ const RareEarths = () => {
         {/* Products Grid */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            {searchTerm || selectedCategory !== 'All' ? 'Search Results' : 'Our Rare Earth Products'}
+            {searchTerm || selectedSubgroup !== 'All' ? 'Search Results' : 'Our pH Indicator Products'}
           </h2>
           
           {filteredProducts.length === 0 ? (
@@ -215,14 +211,14 @@ const RareEarths = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">No Products Found</h3>
               <p className="text-gray-600 mb-6">
-                Try adjusting your search terms or category filter, or browse all products.
+                Try adjusting your search terms or subgroup filter, or browse all products.
               </p>
               <button
                 onClick={() => {
                   clearSearch();
-                  setSelectedCategory('All');
+                  setSelectedSubgroup('All');
                 }}
-                className="inline-flex items-center px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors duration-200"
+                className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-200"
               >
                 View All Products
               </button>
@@ -231,11 +227,12 @@ const RareEarths = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.map((product, index) => {
                 const productColor = getProductColor(product.product);
+                const hasImage = product.specifications?.Image;
                 
                 return (
                   <Link
                     key={index}
-                    to={`/products/rare-earths/${product.id}`}
+                    to={`/products/ph-indicators/${product.id}`}
                     className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                   >
                     <div className="p-8">
@@ -245,42 +242,52 @@ const RareEarths = () => {
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 transform -skew-x-12 animate-pulse"></div>
                         </div>
                         <div className="text-right">
-                          <div className="text-sm font-medium text-gray-500">Category</div>
-                          <div className="text-xs font-bold text-gray-900">{product.category}</div>
+                          <div className="text-sm font-medium text-gray-500">Code</div>
+                          <div className="text-sm font-bold text-gray-900">{product.code}</div>
                         </div>
                       </div>
                       
-                      <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-emerald-600 transition-colors duration-200 line-clamp-2">
-                        {product.product}
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                          product.subgroup === 'Indicators' 
+                            ? 'bg-blue-100 text-blue-800' 
+                            : 'bg-green-100 text-green-800'
+                        }`}>
+                          {product.subgroup}
+                        </span>
+                        {hasImage && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">
+                            Image Available
+                          </span>
+                        )}
+                        {product.msds && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">
+                            MSDS Available
+                          </span>
+                        )}
+                      </div>
+                      
+                      <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors duration-200 line-clamp-2">
+                        {toTitleCase(product.product)}
                       </h3>
                       
                       <div className="space-y-2 mb-6">
-                        {product.fullName && (
-                          <div className="text-sm">
-                            <span className="text-gray-500">Full Name:</span>
-                            <p className="font-medium text-gray-900 mt-1 text-xs">{product.fullName}</p>
-                          </div>
-                        )}
-                        {product.formula && (
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-500">Formula:</span>
-                            <span className="font-medium text-gray-900">{product.formula}</span>
-                          </div>
-                        )}
-                        {product.casNo && (
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-500">CAS No:</span>
-                            <span className="font-medium text-gray-900">{product.casNo}</span>
-                          </div>
-                        )}
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-500">CAS No:</span>
+                          <span className="font-medium text-gray-900">{product.CASNo || 'N/A'}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-500">CI No:</span>
+                          <span className="font-medium text-gray-900">{product.CINo || 'N/A'}</span>
+                        </div>
                       </div>
                       
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                          <Sparkles className="w-4 h-4 text-emerald-500" />
-                          <span className="text-sm text-gray-600">High Purity</span>
+                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <span className="text-sm text-gray-600">Certified Grade</span>
                         </div>
-                        <div className="flex items-center text-emerald-600 font-medium">
+                        <div className="flex items-center text-purple-600 font-medium">
                           View Details
                           <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                         </div>
@@ -296,12 +303,12 @@ const RareEarths = () => {
         {/* Applications */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Applications</h2>
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8">
+          <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {applications.map((application, index) => (
                 <div key={index} className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <TestTube className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-gray-700 font-medium">{application}</span>
                 </div>
@@ -311,27 +318,27 @@ const RareEarths = () => {
         </div>
 
         {/* Technical Excellence */}
-        <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-8 lg:p-12 text-white mb-16">
+        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 lg:p-12 text-white mb-16">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Advanced Materials for Tomorrow's Technology</h2>
-            <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
-              Our rare earth elements are engineered for the most demanding applications in electronics, catalysis, and advanced materials research.
+            <h2 className="text-3xl font-bold mb-6">Analytical Excellence</h2>
+            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
+              Our pH indicators are engineered for precision and reliability, offering exceptional accuracy and consistency for demanding analytical applications.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <Atom className="w-8 h-8 mx-auto mb-3" />
-                <h3 className="font-bold mb-2">Ultra-Pure Elements</h3>
-                <p className="text-emerald-100 text-sm">99.9%+ purity for critical applications</p>
+                <Flask className="w-8 h-8 mx-auto mb-3" />
+                <h3 className="font-bold mb-2">Certified Grade</h3>
+                <p className="text-purple-100 text-sm">Meeting international standards</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <TestTube className="w-8 h-8 mx-auto mb-3" />
-                <h3 className="font-bold mb-2">Research Grade</h3>
-                <p className="text-emerald-100 text-sm">Suitable for advanced research</p>
+                <Zap className="w-8 h-8 mx-auto mb-3" />
+                <h3 className="font-bold mb-2">High Precision</h3>
+                <p className="text-purple-100 text-sm">Accurate pH measurements</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
                 <Award className="w-8 h-8 mx-auto mb-3" />
-                <h3 className="font-bold mb-2">Quality Certified</h3>
-                <p className="text-emerald-100 text-sm">Meeting international standards</p>
+                <h3 className="font-bold mb-2">Quality Assured</h3>
+                <p className="text-purple-100 text-sm">Rigorous quality control</p>
               </div>
             </div>
           </div>
@@ -340,21 +347,22 @@ const RareEarths = () => {
         {/* Contact CTA */}
         <div className="text-center bg-gray-50 rounded-2xl p-8 lg:p-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Need Rare Earth Elements for Your Research?
+            Need pH Indicators for Your Analysis?
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Contact our technical team to discuss your specific rare earth requirements. We provide custom solutions and expert guidance for advanced applications.
+            Contact our technical team to discuss your specific pH indicator requirements. We provide custom solutions and expert guidance for analytical applications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-lg transition-colors duration-200"
+              className="inline-flex items-center px-8 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors duration-200"
             >
               Get Quote
             </Link>
-            <button className="inline-flex items-center px-8 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg border border-gray-300 transition-colors duration-200">
-              Download Catalog
-            </button>
+             <Link to="/products" className="inline-flex items-center px-8 py-3 bg-white hover:bg-gray-50 text-gray-700 font-medium rounded-lg border border-gray-300 transition-colors duration-200">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Explore Products
+            </Link>
           </div>
         </div>
       </div>
@@ -362,4 +370,4 @@ const RareEarths = () => {
   );
 };
 
-export default RareEarths;
+export default PhIndicators;
