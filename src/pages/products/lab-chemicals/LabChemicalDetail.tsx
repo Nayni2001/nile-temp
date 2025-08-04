@@ -1,18 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  TestTube,
-  Shield,
-  Award,
-  CheckCircle,
-  Flask,
-  Beaker,
-  AlertTriangle,
-  Star,
-  Eye,
-  FileText,
-  Zap,
-} from "lucide-react";
+import { TestTube, Shield, Award, CheckCircle, FlaskRound as Flask, Beaker, AlertTriangle, Star, Eye, FileText, Zap } from "lucide-react";
 import { getAllProducts } from "../../../data/labChemicalsData";
 import { toTitleCase } from "../../../utils/stringUtils";
 
