@@ -65,7 +65,7 @@ const LabChemicals = () => {
   };
 
   // Get unique subgroups and grades
-  const subgroups = ['All', ...Array.from(new Set(allProducts.map(p => p.subgroup)))];
+  const subgroups = ['All', 'A - A', 'B - B', 'C - C', 'D - F', 'G - K', 'L - M', 'N - P', 'Q - S', 'T - V', 'W - Z'];
   const grades = ['All', ...Array.from(new Set(allProducts.map(p => p.grade)))];
 
   const features = [
@@ -284,15 +284,27 @@ const LabChemicals = () => {
                       
                       <div className="flex items-center gap-2 mb-3 flex-wrap">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          product.subgroup === 'Acids' 
+                          product.subgroup === 'A - A' 
                             ? 'bg-red-100 text-red-800'
-                            : product.subgroup === 'Bases'
+                            : product.subgroup === 'B - B'
                             ? 'bg-blue-100 text-blue-800'
-                            : product.subgroup === 'Metal Salts'
+                            : product.subgroup === 'C - C'
+                            ? 'bg-green-100 text-green-800'
+                            : product.subgroup === 'D - F'
+                            ? 'bg-yellow-100 text-yellow-800'
+                            : product.subgroup === 'G - K'
                             ? 'bg-purple-100 text-purple-800'
-                            : product.subgroup === 'Oxidizing Agents'
+                            : product.subgroup === 'L - M'
+                            ? 'bg-pink-100 text-pink-800'
+                            : product.subgroup === 'N - P'
+                            ? 'bg-indigo-100 text-indigo-800'
+                            : product.subgroup === 'Q - S'
+                            ? 'bg-red-100 text-red-800'
+                            : product.subgroup === 'T - V'
                             ? 'bg-orange-100 text-orange-800'
-                            : 'bg-green-100 text-green-800'
+                            : product.subgroup === 'W - Z'
+                            ? 'bg-teal-100 text-teal-800'
+                            : 'bg-gray-100 text-gray-800'
                         }`}>
                           {product.subgroup}
                         </span>

@@ -28,7 +28,7 @@ export const labChemicalsData = {
       molecularFormula: "NaCl",
       molecularWeight: "58.44",
       grade: "A.R. Grade",
-      subgroup: "Inorganic Salts",
+      subgroup: "Q - S",
       specifications: {
         "Assay (NaCl)": "≥ 99.5%",
         "pH (5% solution)": "5.0 - 9.0",
@@ -106,7 +106,7 @@ export const labChemicalsData = {
       molecularFormula: "H2SO4",
       molecularWeight: "98.08",
       grade: "A.R. Grade",
-      subgroup: "Acids",
+      subgroup: "Q - S",
       specifications: {
         "Assay (H2SO4)": "95.0 - 98.0%",
         "Residue after ignition": "≤ 0.002%",
@@ -176,7 +176,7 @@ export const labChemicalsData = {
       molecularFormula: "KMnO4",
       molecularWeight: "158.03",
       grade: "A.R. Grade",
-      subgroup: "Oxidizing Agents",
+      subgroup: "N - P",
       specifications: {
         "Assay (KMnO4)": "≥ 99.0%",
         "Insoluble matter": "≤ 0.05%",
@@ -221,7 +221,7 @@ export const labChemicalsData = {
       molecularFormula: "HCl",
       molecularWeight: "36.46",
       grade: "A.R. Grade",
-      subgroup: "Acids",
+      subgroup: "G - K",
       specifications: {
         "Assay (HCl)": "35.0 - 37.0%",
         "Residue after ignition": "≤ 0.001%",
@@ -242,7 +242,7 @@ export const labChemicalsData = {
       molecularFormula: "NaOH",
       molecularWeight: "40.00",
       grade: "A.R. Grade",
-      subgroup: "Bases",
+      subgroup: "Q - S",
       specifications: {
         "Assay (NaOH)": "≥ 97.0%",
         "Sodium carbonate (Na2CO3)": "≤ 2.0%",
@@ -261,7 +261,7 @@ export const labChemicalsData = {
       molecularFormula: "CuSO4·5H2O",
       molecularWeight: "249.68",
       grade: "A.R. Grade",
-      subgroup: "Metal Salts",
+      subgroup: "C - C",
       specifications: {
         "Assay (CuSO4·5H2O)": "≥ 99.0%",
         "Insoluble matter": "≤ 0.005%",
@@ -281,7 +281,7 @@ export const labChemicalsData = {
       molecularFormula: "AgNO3",
       molecularWeight: "169.87",
       grade: "A.R. Grade",
-      subgroup: "Metal Salts",
+      subgroup: "Q - S",
       specifications: {
         "Assay (AgNO3)": "≥ 99.8%",
         "pH (5% solution)": "5.0 - 6.5",
@@ -301,7 +301,7 @@ export const labChemicalsData = {
       molecularFormula: "NH4OH",
       molecularWeight: "35.05",
       grade: "A.R. Grade",
-      subgroup: "Bases",
+      subgroup: "A - A",
       specifications: {
         "Assay (NH3)": "28.0 - 30.0%",
         "Residue after ignition": "≤ 0.001%",
@@ -310,6 +310,189 @@ export const labChemicalsData = {
         "Iron (Fe)": "≤ 0.0002%",
         "Heavy metals (as Pb)": "≤ 0.0005%",
         "Phosphate (PO4)": "≤ 0.0001%"
+      }
+    },
+    {
+      id: "acetic-acid-ar",
+      product: "Acetic Acid A.R.",
+      code: "LC-009",
+      CASNo: "64-19-7",
+      molecularFormula: "CH3COOH",
+      molecularWeight: "60.05",
+      grade: "A.R. Grade",
+      subgroup: "A - A",
+      specifications: {
+        "Assay (CH3COOH)": "≥ 99.5%",
+        "Water content": "≤ 0.2%",
+        "Residue after ignition": "≤ 0.001%",
+        "Chloride (Cl)": "≤ 0.0002%",
+        "Sulfate (SO4)": "≤ 0.0005%",
+        "Iron (Fe)": "≤ 0.0001%",
+        "Heavy metals (as Pb)": "≤ 0.0005%",
+        "Appearance": "Clear, colorless liquid"
+      }
+    },
+    {
+      id: "barium-chloride-ar",
+      product: "Barium Chloride Dihydrate A.R.",
+      code: "LC-010",
+      CASNo: "10326-27-9",
+      molecularFormula: "BaCl2·2H2O",
+      molecularWeight: "244.26",
+      grade: "A.R. Grade",
+      subgroup: "B - B",
+      specifications: {
+        "Assay (BaCl2·2H2O)": "≥ 99.0%",
+        "pH (5% solution)": "5.2 - 8.5",
+        "Insoluble matter": "≤ 0.005%",
+        "Sulfate (SO4)": "≤ 0.005%",
+        "Iron (Fe)": "≤ 0.001%",
+        "Heavy metals (as Pb)": "≤ 0.002%",
+        "Strontium (Sr)": "≤ 0.3%",
+        "Appearance": "White crystalline powder"
+      }
+    },
+    {
+      id: "calcium-carbonate-ar",
+      product: "Calcium Carbonate A.R.",
+      code: "LC-011",
+      CASNo: "471-34-1",
+      molecularFormula: "CaCO3",
+      molecularWeight: "100.09",
+      grade: "A.R. Grade",
+      subgroup: "C - C",
+      specifications: {
+        "Assay (CaCO3)": "≥ 99.0%",
+        "Insoluble in HCl": "≤ 0.05%",
+        "Loss on ignition": "43.5 - 44.5%",
+        "Chloride (Cl)": "≤ 0.003%",
+        "Sulfate (SO4)": "≤ 0.03%",
+        "Iron (Fe)": "≤ 0.003%",
+        "Heavy metals (as Pb)": "≤ 0.001%",
+        "Magnesium (Mg)": "≤ 0.05%",
+        "Appearance": "White powder"
+      }
+    },
+    {
+      id: "ethanol-ar",
+      product: "Ethanol A.R.",
+      code: "LC-012",
+      CASNo: "64-17-5",
+      molecularFormula: "C2H5OH",
+      molecularWeight: "46.07",
+      grade: "A.R. Grade",
+      subgroup: "D - F",
+      specifications: {
+        "Assay (C2H5OH)": "≥ 99.5%",
+        "Water content": "≤ 0.2%",
+        "Residue after evaporation": "≤ 0.001%",
+        "Acidity (as CH3COOH)": "≤ 0.002%",
+        "Alkalinity (as NH3)": "≤ 0.001%",
+        "Aldehydes (as CH3CHO)": "≤ 0.001%",
+        "Methanol": "≤ 0.05%",
+        "Appearance": "Clear, colorless liquid"
+      }
+    },
+    {
+      id: "glucose-ar",
+      product: "Glucose Anhydrous A.R.",
+      code: "LC-013",
+      CASNo: "50-99-7",
+      molecularFormula: "C6H12O6",
+      molecularWeight: "180.16",
+      grade: "A.R. Grade",
+      subgroup: "G - K",
+      specifications: {
+        "Assay (C6H12O6)": "≥ 99.5%",
+        "Loss on drying": "≤ 0.5%",
+        "Residue on ignition": "≤ 0.1%",
+        "pH (5% solution)": "5.0 - 7.0",
+        "Chloride (Cl)": "≤ 0.005%",
+        "Sulfate (SO4)": "≤ 0.01%",
+        "Heavy metals (as Pb)": "≤ 0.0005%",
+        "Reducing substances": "≤ 0.2%",
+        "Appearance": "White crystalline powder"
+      }
+    },
+    {
+      id: "magnesium-sulfate-ar",
+      product: "Magnesium Sulfate Heptahydrate A.R.",
+      code: "LC-014",
+      CASNo: "10034-99-8",
+      molecularFormula: "MgSO4·7H2O",
+      molecularWeight: "246.47",
+      grade: "A.R. Grade",
+      subgroup: "L - M",
+      specifications: {
+        "Assay (MgSO4·7H2O)": "≥ 99.0%",
+        "pH (5% solution)": "5.5 - 7.0",
+        "Insoluble matter": "≤ 0.005%",
+        "Chloride (Cl)": "≤ 0.001%",
+        "Iron (Fe)": "≤ 0.001%",
+        "Heavy metals (as Pb)": "≤ 0.001%",
+        "Calcium (Ca)": "≤ 0.05%",
+        "Manganese (Mn)": "≤ 0.001%",
+        "Appearance": "White crystalline solid"
+      }
+    },
+    {
+      id: "nitric-acid-ar",
+      product: "Nitric Acid A.R.",
+      code: "LC-015",
+      CASNo: "7697-37-2",
+      molecularFormula: "HNO3",
+      molecularWeight: "63.01",
+      grade: "A.R. Grade",
+      subgroup: "N - P",
+      specifications: {
+        "Assay (HNO3)": "68.0 - 70.0%",
+        "Residue after ignition": "≤ 0.0002%",
+        "Chloride (Cl)": "≤ 0.00005%",
+        "Sulfate (SO4)": "≤ 0.0001%",
+        "Iron (Fe)": "≤ 0.00002%",
+        "Heavy metals (as Pb)": "≤ 0.00005%",
+        "Phosphate (PO4)": "≤ 0.00005%",
+        "Appearance": "Clear, colorless to pale yellow liquid"
+      }
+    },
+    {
+      id: "toluene-ar",
+      product: "Toluene A.R.",
+      code: "LC-016",
+      CASNo: "108-88-3",
+      molecularFormula: "C7H8",
+      molecularWeight: "92.14",
+      grade: "A.R. Grade",
+      subgroup: "T - V",
+      specifications: {
+        "Assay (C7H8)": "≥ 99.5%",
+        "Water content": "≤ 0.03%",
+        "Residue after evaporation": "≤ 0.001%",
+        "Acidity (as CH3COOH)": "≤ 0.001%",
+        "Benzene": "≤ 0.05%",
+        "Thiophene": "Passes test",
+        "Appearance": "Clear, colorless liquid"
+      }
+    },
+    {
+      id: "zinc-sulfate-ar",
+      product: "Zinc Sulfate Heptahydrate A.R.",
+      code: "LC-017",
+      CASNo: "7446-20-0",
+      molecularFormula: "ZnSO4·7H2O",
+      molecularWeight: "287.56",
+      grade: "A.R. Grade",
+      subgroup: "W - Z",
+      specifications: {
+        "Assay (ZnSO4·7H2O)": "≥ 99.0%",
+        "pH (5% solution)": "4.4 - 6.0",
+        "Insoluble matter": "≤ 0.005%",
+        "Chloride (Cl)": "≤ 0.001%",
+        "Iron (Fe)": "≤ 0.002%",
+        "Heavy metals (as Pb)": "≤ 0.001%",
+        "Copper (Cu)": "≤ 0.002%",
+        "Manganese (Mn)": "≤ 0.001%",
+        "Appearance": "White crystalline solid"
       }
     }
   ]
