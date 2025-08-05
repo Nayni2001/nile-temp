@@ -28,7 +28,6 @@ export const labChemicalsData = {
       molecularFormula: "NaCl",
       molecularWeight: "58.44",
       grade: "A.R. Grade",
-      subgroup: "Q - S",
       specifications: {
         "Assay (NaCl)": "≥ 99.5%",
         "pH (5% solution)": "5.0 - 9.0",
