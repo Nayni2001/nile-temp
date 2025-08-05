@@ -378,7 +378,20 @@ const LabChemicalDetail = () => {
           <div>
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
               <TestTube className="w-4 h-4 mr-2" />
-              {product.subgroup}
+              {(() => {
+                const firstLetter = product.product.charAt(0).toUpperCase();
+                if (firstLetter === 'A') return 'A - A';
+                if (firstLetter === 'B') return 'B - B';
+                if (firstLetter === 'C') return 'C - C';
+                if (['D', 'E', 'F'].includes(firstLetter)) return 'D - F';
+                if (['G', 'H', 'I', 'J', 'K'].includes(firstLetter)) return 'G - K';
+                if (['L', 'M'].includes(firstLetter)) return 'L - M';
+                if (['N', 'O', 'P'].includes(firstLetter)) return 'N - P';
+                if (['Q', 'R', 'S'].includes(firstLetter)) return 'Q - S';
+                if (['T', 'U', 'V'].includes(firstLetter)) return 'T - V';
+                if (['W', 'X', 'Y', 'Z'].includes(firstLetter)) return 'W - Z';
+                return 'Lab Chemical';
+              })()}
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               {toTitleCase(product.product)}

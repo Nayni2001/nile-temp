@@ -7,7 +7,6 @@ export interface LabChemical {
   molecularFormula?: string;
   molecularWeight?: string;
   grade: string;
-  subgroup: string;
   specifications?: {
     [key: string]: any;
   };
@@ -520,5 +519,21 @@ export function getProductsByGrade(grade: string): LabChemical[] {
 }
 
 export function getProductsBySubgroup(subgroup: string): LabChemical[] {
-  return labChemicalsData.products.filter(product => product.subgroup === subgroup);
+  return labChemicalsData.products.filter(product => {
+    const firstLetter = product.product.charAt(0).toUpperCase();
+    switch(subgroup) {
+      case 'A - A': return firstLetter === 'A';
+      case 'B - B': return firstLetter === 'B';
+      case 'C - C': return firstLetter === 'C';
+      case 'D - F': return ['D', 'E', 'F'].includes(firstLetter);
+      case 'G - K': return ['G', 'H', 'I', 'J', 'K'].includes(firstLetter);
+      case 'L - M': return ['L', 'M'].includes(firstLetter);
+      case 'N - P': return ['N', 'O', 'P'].includes(firstLetter);
+      case 'Q - S': return ['Q', 'R', 'S'].includes(firstLetter);
+      case 'T - V': return ['T', 'U', 'V'].includes(firstLetter);
+      case 'W - Z': return ['W', 'X', 'Y', 'Z'].includes(firstLetter);
+      default: return false;
+    }
+  });
+}
 }

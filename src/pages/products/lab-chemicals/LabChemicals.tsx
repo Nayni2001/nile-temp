@@ -284,7 +284,50 @@ const LabChemicals = () => {
                       
                       <div className="flex items-center gap-2 mb-3 flex-wrap">
                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-                          product.subgroup === 'A - A' 
+                          (() => {
+                            const firstLetter = product.product.charAt(0).toUpperCase();
+                            if (firstLetter === 'A') return 'bg-red-100 text-red-800';
+                            if (firstLetter === 'B') return 'bg-blue-100 text-blue-800';
+                            if (firstLetter === 'C') return 'bg-green-100 text-green-800';
+                            if (['D', 'E', 'F'].includes(firstLetter)) return 'bg-yellow-100 text-yellow-800';
+                            if (['G', 'H', 'I', 'J', 'K'].includes(firstLetter)) return 'bg-purple-100 text-purple-800';
+                            if (['L', 'M'].includes(firstLetter)) return 'bg-pink-100 text-pink-800';
+                            if (['N', 'O', 'P'].includes(firstLetter)) return 'bg-indigo-100 text-indigo-800';
+                            if (['Q', 'R', 'S'].includes(firstLetter)) return 'bg-red-100 text-red-800';
+                            if (['T', 'U', 'V'].includes(firstLetter)) return 'bg-orange-100 text-orange-800';
+                            if (['W', 'X', 'Y', 'Z'].includes(firstLetter)) return 'bg-teal-100 text-teal-800';
+                            return 'bg-gray-100 text-gray-800';
+                          })()
+                        }`}>
+                          {(() => {
+                            const firstLetter = product.product.charAt(0).toUpperCase();
+                            if (firstLetter === 'A') return 'A - A';
+                            if (firstLetter === 'B') return 'B - B';
+                            if (firstLetter === 'C') return 'C - C';
+                            if (['D', 'E', 'F'].includes(firstLetter)) return 'D - F';
+                            if (['G', 'H', 'I', 'J', 'K'].includes(firstLetter)) return 'G - K';
+                            if (['L', 'M'].includes(firstLetter)) return 'L - M';
+                            if (['N', 'O', 'P'].includes(firstLetter)) return 'N - P';
+                            if (['Q', 'R', 'S'].includes(firstLetter)) return 'Q - S';
+                            if (['T', 'U', 'V'].includes(firstLetter)) return 'T - V';
+                            if (['W', 'X', 'Y', 'Z'].includes(firstLetter)) return 'W - Z';
+                            return 'Other';
+                          })()}
+                        </span>
+                        <span className="px-2 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800">
+                          {product.grade}
+                        </span>
+                        {hasSpecifications && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-100 text-yellow-800">
+                            Specs Available
+                          </span>
+                        )}
+                        {hasMSDS && (
+                          <span className="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">
+                            MSDS Available
+                          </span>
+                        )}
+                      </div>
                             ? 'bg-red-100 text-red-800'
                             : product.subgroup === 'B - B'
                             ? 'bg-blue-100 text-blue-800'
