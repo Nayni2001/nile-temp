@@ -8,4 +8,5 @@ export const labChemicalsData: LabChemicals = {
   details: {
     description:
       "We are leading international supplier and distributor of fine chemicals, metals, and materials. Our products are used in a variety of industrial, academic and institutional research, development and production applications. We offer customers the highest quality and purity in fine chemical products.",
-    products: [
+    products: [],
+  }, }
