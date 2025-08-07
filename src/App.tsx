@@ -20,9 +20,7 @@ function App() {
               path="/products/ph-indicators/:productId"
               element={<PhIndicatorDetail />} />
           <Route path="/products/lab-chemicals" element={<LabChemicals />} />
-          <Route
-            path="/products/lab-chemicals/:productId"
-            element={<LabChemicalDetail />} />
+          <Route path="/products/lab-chemicals/:productSlug" element={<LabChemicalDetail />} />
         </Routes>
       </div>
     </Router>
