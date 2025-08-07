@@ -1,1 +1,11 @@
-{"code":"rate-limited","message":"You have hit the rate limit. Please upgrade to keep chatting.","providerLimitHit":false,"isRetryable":true}
+const information =
+  "Nile chemicals provides the information contained herein in good faith but makes no representation as to its comprehensiveness or accuracy. This document is intended only as a guide to the appropriate precautionary handling of the material by a properly trained person using this product. Individuals receiving the information must exercise their independent judgment in determining its appropriateness for a particular purpose. Nile chemicals makes no representations or warranties, either express or implied, including without limitation any warranties of merchantability, fitness for a particular purpose with respect to the information set forth herein or the product to which the information refers. Accordingly, nile chemicals will not be responsible for damages resulting from use of or reliance upon this information.";
+const employerInformation =
+  "Employers should use this information only as a supplement to other information gathered by them, and should make independent judgement of suitability of this information to ensure proper use and protect the health and safety of employees.  This information is furnished without warranty, and any use of the product not in conformance with this Material Safety Data Sheet, or in combination with any other product or process, is the responsibility of the user.";
+const correctInformation = "The above information is believed to be correct but does not purport to be all inclusive and shall be used only as a guide. The information in this document is based on the present state of our knowledge and is applicable to the product with regard to appropriate safety precautions. It does not represent any guarantee of the properties of the product. Nile Chemicals and its Affiliates shall not be held liable for any damage resulting from handling or from contact with the above product. the reverse side of invoice or packing slip for additional terms and conditions of sale.";
+export const labChemicalsData: LabChemicals = {
+  category: "Lab Chemicals",
+  details: {
+    description:
+      "We are leading international supplier and distributor of fine chemicals, metals, and materials. Our products are used in a variety of industrial, academic and institutional research, development and production applications. We offer customers the highest quality and purity in fine chemical products.",
+    products: [
