@@ -508,3 +508,103 @@ export const labChemicalsData: LabChemicals = {
     ],
   }, 
 }
+
+
+
+export interface ProductSpecification {
+  [key: string]: string | number | boolean | ProductSpecification | undefined;
+}
+
+export interface CompositionItem {
+  [key: string]: string | undefined;
+}
+
+export interface MSDS {
+  "Product Identification"?: object;
+  Composition?: CompositionItem[];
+  "Hazards Identification"?: object;
+  "First Aid Measures"?: object;
+  "Fire Fighting Measures"?: object;
+  "Accidental Release Measures"?: object;
+  "Handling and Storage"?: object;
+  "Exposure Controls Personal Protection"?: object;
+  "Physical and Chemical Properties"?: object;
+  "Stability and Reactivity"?: object;
+  "Toxicological Information"?: object;
+  "Ecological Information"?: object;
+  "Disposal Considerations"?: object;
+  "Transport Information"?: object;
+  "Regulatory Information"?: object;
+  "Other Information"?: string;
+}
+
+export interface Product {
+  code: string;
+  CASNo: string;
+  product: string;
+  COA: boolean;
+  specifications?: ProductSpecification;
+  MSDS?: MSDS;
+}
+
+export interface LabChemicals {
+  category: string;
+  details: {
+    description: string;
+    products: Product[];
+  };
+}
+
+// Helper functions
+export function getProductColor(productName: string): string {
+  const colors = ['blue', 'green', 'purple', 'red', 'orange', 'teal', 'indigo', 'pink'];
+  const hash = productName.split('').reduce((a, b) => {
+    a = ((a << 5) - a) + b.charCodeAt(0);
+    return a & a;
+  }, 0);
+  return colors[Math.abs(hash) % colors.length];
+}
+
+export function getAllProducts(): Product[] {
+  return labChemicalsData.details.products;
+}
+
+export function getProductById(id: string): Product | undefined {
+  return labChemicalsData.details.products.find(product => product.product === id);
+}
+
+
+export function getProductsBySubgroup(productSpec: string): Product[] {
+  return labChemicalsData.details.products.filter(product => {
+    const firstLetter = product.product.charAt(0).toUpperCase();
+    switch (productSpec.charAt(0)) {
+      case 'A': return firstLetter === 'A';
+      case 'B': return firstLetter === 'B';
+      case 'C': return firstLetter === 'C';
+      case 'D': return ['D', 'E', 'F'].includes(firstLetter);
+      case 'E': return ['D', 'E', 'F'].includes(firstLetter);
+      case 'F': return ['D', 'E', 'F'].includes(firstLetter);
+      case 'G': return ['G', 'H', 'I', 'J', 'K'].includes(firstLetter);
+      case 'H': return ['G', 'H', 'I', 'J', 'K'].includes(firstLetter);
+      case 'I': return ['G', 'H', 'I', 'J', 'K'].includes(firstLetter);
+      case 'J': return ['G', 'H', 'I', 'J', 'K'].includes(firstLetter);
+      case 'K': return ['G', 'H', 'I', 'J', 'K'].includes(firstLetter);
+      case 'L': return ['L', 'M'].includes(firstLetter);
+      case 'M': return ['L', 'M'].includes(firstLetter);
+      case 'N': return ['N', 'O', 'P'].includes(firstLetter);
+      case 'O': return ['N', 'O', 'P'].includes(firstLetter);
+      case 'P': return ['N', 'O', 'P'].includes(firstLetter);
+      case 'Q': return ['Q', 'R', 'S'].includes(firstLetter);
+      case 'R': return ['Q', 'R', 'S'].includes(firstLetter);
+      case 'S': return ['Q', 'R', 'S'].includes(firstLetter);
+      case 'T': return ['T', 'U', 'V'].includes(firstLetter);
+      case 'U': return ['T', 'U', 'V'].includes(firstLetter);
+      case 'V': return ['T', 'U', 'V'].includes(firstLetter);
+      case 'W': return ['W', 'X', 'Y', 'Z'].includes(firstLetter);
+      case 'X': return ['W', 'X', 'Y', 'Z'].includes(firstLetter);
+      case 'Y': return ['W', 'X', 'Y', 'Z'].includes(firstLetter);
+      case 'Z': return ['W', 'X', 'Y', 'Z'].includes(firstLetter);
+      default: return false;
+    }
+  });
+}
